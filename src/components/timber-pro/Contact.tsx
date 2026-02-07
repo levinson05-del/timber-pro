@@ -15,11 +15,11 @@ const Contact = () => {
             }}></div>
 
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold font-serif mb-6">בואו נגשים חלום</h3>
-              <p className="text-gray-300 mb-12 leading-relaxed">
+              <h3 className="text-3xl font-bold font-['Frank_Ruhl_Libre'] mb-6">בואו נגשים חלום</h3>
+              <p className="text-gray-300 mb-12 leading-relaxed font-['Heebo']">
                 יש לכם רעיון לפרויקט? רוצים להתייעץ? השאירו פרטים ונחזור אליכם בהקדם לקביעת פגישת ייעוץ ללא התחייבות.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-4 font-['Heebo']">
                 <div className="flex items-center gap-4">
                   <div className="bg-[#A05A2C] p-3 rounded-full"><Phone className="w-5 h-5" /></div>
                   <span dir="ltr" className="font-medium">050-XXX-XXXX</span>
@@ -32,7 +32,7 @@ const Contact = () => {
             </div>
              <div className="flex items-center gap-2 mt-12 relative z-10 opacity-50">
                   <Hammer className="w-6 h-6 text-[#A05A2C] rotate-[-10deg]" />
-                  <span className="text-xl font-extrabold tracking-tight text-white font-serif">
+                  <span className="text-xl font-black tracking-tight text-white font-['Frank_Ruhl_Libre']">
                   Timber<span className="text-[#A05A2C]">Pro</span>
                   </span>
               </div>

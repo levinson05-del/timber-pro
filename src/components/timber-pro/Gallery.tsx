@@ -16,8 +16,8 @@ const Gallery = () => {
   return (
     <section id="gallery" className="py-20 container mx-auto px-4">
       <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#3e2723] mb-4">עבודות אחרונות</h2>
-          <p className="text-[#6d4738] max-w-xl mx-auto">הצצה קטנה לכמה מהפרויקטים המיוחדים שביצענו לאחרונה.</p>
+          <h2 className="text-3xl md:text-4xl font-bold font-['Frank_Ruhl_Libre'] text-[#3e2723] mb-4">עבודות אחרונות</h2>
+          <p className="text-[#6d4738] max-w-xl mx-auto font-['Heebo'] leading-relaxed">הצצה קטנה לכמה מהפרויקטים המיוחדים שביצענו לאחרונה.</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {images.map((src, index) => (
@@ -28,7 +28,7 @@ const Gallery = () => {
           >
             <img src={src} alt={`פרויקט ${index + 1}`} className="w-full h-full object-cover transition duration-500 group-hover:brightness-75" />
             <div className="absolute inset-0 bg-[#3e2723]/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-              <span className="text-white font-medium px-4 py-2 border-2 border-white rounded">הגדל תמונה</span>
+              <span className="text-white font-medium px-4 py-2 border-2 border-white rounded font-['Heebo']">הגדל תמונה</span>
             </div>
           </motion.div>
         ))}

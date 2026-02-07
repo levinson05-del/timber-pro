@@ -31,13 +31,13 @@ const Hero = ({ scrollToSection }: HeroProps) => {
         variants={fadeInUp}
         className="relative z-10 container mx-auto px-4 text-center text-white"
       >
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 font-serif tracking-wide drop-shadow-lg">
+        <h1 className="text-4xl md:text-7xl font-black mb-6 font-['Frank_Ruhl_Libre'] tracking-wide drop-shadow-lg leading-tight">
           אומנות בעץ, בדיוק כמו שחלמתם.
         </h1>
-        <p className="text-lg md:text-2xl mb-10 max-w-2xl mx-auto text-gray-200 leading-relaxed font-light">
+        <p className="text-lg md:text-2xl mb-10 max-w-2xl mx-auto text-gray-200 leading-relaxed font-['Heebo'] font-light">
           נגרות בוטיק בהתאמה אישית. פרגולות, דקים וריהוט ייחודי ברמת גימור שתשנה את הבית שלכם.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 font-['Heebo']">
           <button onClick={() => scrollToSection('contact')} className="bg-[#A05A2C] hover:bg-[#8a4d25] text-white text-lg font-medium px-8 py-4 rounded-lg shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
             קבל הצעת מחיר <ArrowLeft className="w-5 h-5"/>
           </button>

@@ -25,11 +25,11 @@ const ContactForm = () => {
 
   if (status === 'success') {
     return (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full flex flex-col items-center justify-center text-center space-y-4">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full flex flex-col items-center justify-center text-center space-y-4 font-['Heebo']">
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
             <CheckCircle className="w-10 h-10 text-green-600" />
         </div>
-        <h3 className="text-2xl font-bold text-[#3e2723]">תודה רבה!</h3>
+        <h3 className="text-2xl font-bold text-[#3e2723] font-['Frank_Ruhl_Libre']">תודה רבה!</h3>
         <p className="text-[#6d4738]">קיבלנו את הפרטים שלך. נחזור אליך בהקדם האפשרי.</p>
         <button onClick={() => setStatus('idle')} className="mt-4 text-[#A05A2C] hover:underline">שלח הודעה נוספת</button>
       </motion.div>
@@ -37,7 +37,7 @@ const ContactForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6 font-['Heebo']">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-[#3e2723] mb-1">שם מלא *</label>
         <input 

@@ -23,12 +23,12 @@ const Header = ({ scrollToSection }: HeaderProps) => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavClick('hero')}>
           <Hammer className="w-8 h-8 text-[#A05A2C] rotate-[-10deg]" strokeWidth={2.5} />
-          <span className="text-2xl font-extrabold tracking-tight text-[#3e2723] font-serif">
+          <span className="text-2xl font-black tracking-tight text-[#3e2723] font-['Frank_Ruhl_Libre']">
             Timber<span className="text-[#A05A2C]">Pro</span>
           </span>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8 font-medium">
+        <nav className="hidden md:flex items-center gap-8 font-medium font-['Heebo']">
           <button onClick={() => handleNavClick('about')} className="hover:text-[#A05A2C] transition">אודות</button>
           <button onClick={() => handleNavClick('services')} className="hover:text-[#A05A2C] transition">שירותים</button>
           <button onClick={() => handleNavClick('gallery')} className="hover:text-[#A05A2C] transition">גלריה</button>
@@ -51,7 +51,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t border-[#e9d9ce]"
           >
-            <div className="flex flex-col p-4 gap-4 font-medium">
+            <div className="flex flex-col p-4 gap-4 font-medium font-['Heebo']">
               <button onClick={() => handleNavClick('about')} className="text-right hover:text-[#A05A2C]">אודות</button>
               <button onClick={() => handleNavClick('services')} className="text-right hover:text-[#A05A2C]">שירותים</button>
               <button onClick={() => handleNavClick('gallery')} className="text-right hover:text-[#A05A2C]">גלריה</button>
