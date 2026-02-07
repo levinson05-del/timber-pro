@@ -1,16 +1,24 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+"use client";
 
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import WhyChooseUsSection from "@/components/WhyChooseUsSection";
+import ContactFormSection from "@/components/ContactFormSection";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">
-          Start building your amazing project here!
-        </p>
-      </div>
+    <div dir="rtl" className="font-sans text-right bg-background text-foreground">
+      <Navbar />
+      <main className="pt-[72px]"> {/* Adjust padding to account for fixed navbar height */}
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <WhyChooseUsSection />
+        <ContactFormSection />
+      </main>
       <MadeWithDyad />
     </div>
   );
