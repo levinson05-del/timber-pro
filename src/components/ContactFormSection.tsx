@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { showSuccess, showError } from "@/utils/toast";
+import { showSuccess } from "@/utils/toast";
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: "שם מלא חייב להכיל לפחות 2 תווים." }),
@@ -35,7 +35,7 @@ const ContactFormSection = () => {
     form.reset();
   };
 
-  const variants = {
+  const variants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };

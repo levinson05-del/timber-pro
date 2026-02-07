@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const AboutSection = () => {
-  const variants = {
+  const variants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
@@ -24,7 +24,7 @@ const AboutSection = () => {
           ב"טימבר פרו" אנו מביאים לידי ביטוי אהבה עמוקה לעץ וכישרון יוצא דופן באומנות הנגרות.
           אנו מתמחים בתכנון, עיצוב וביצוע פרויקטים מותאמים אישית, החל מפרגולות ודקים יוקרתיים,
           דרך ריהוט פנים וחוץ ייחודי, ועד עבודות עץ מורכבות. כל פרויקט הוא יצירת אומנות בפני עצמה,
-          המבוצעת בדייקנות, תשומת לב לפרטים הקטנים ובשימוש בחומרים האיכותיים ביותר,
+          המבוצעות בדייקנות, תשומת לב לפרטים הקטנים ובשימוש בחומרים האיכותיים ביותר,
           כדי להבטיח תוצאה מושלמת שתשמח אתכם לאורך שנים.
         </p>
       </div>
