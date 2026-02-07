@@ -1,24 +1,36 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
-import WhyChooseUsSection from "@/components/WhyChooseUsSection";
-import ContactFormSection from "@/components/ContactFormSection";
+import React from 'react';
+import Header from '@/components/timber-pro/Header';
+import Hero from '@/components/timber-pro/Hero';
+import About from '@/components/timber-pro/About';
+import Services from '@/components/timber-pro/Services';
+import WhyUs from '@/components/timber-pro/WhyUs';
+import Gallery from '@/components/timber-pro/Gallery';
+import Contact from '@/components/timber-pro/Contact';
+import Footer from '@/components/timber-pro/Footer';
 import { MadeWithDyad } from "@/components/made-with-dyad";
 
 const Index = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div dir="rtl" className="font-sans text-right bg-background text-foreground">
-      <Navbar />
-      <main className="pt-[72px]"> {/* Adjust padding to account for fixed navbar height */}
-        <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <WhyChooseUsSection />
-        <ContactFormSection />
+    <div dir="rtl" className="font-sans bg-[#fbf7f4] text-[#3e2723] overflow-x-hidden">
+      <Header scrollToSection={scrollToSection} />
+      <main>
+        <Hero scrollToSection={scrollToSection} />
+        <About />
+        <Services />
+        <WhyUs />
+        <Gallery />
+        <Contact />
       </main>
+      <Footer />
       <MadeWithDyad />
     </div>
   );
