@@ -19,7 +19,7 @@ const services = [
   {
     icon: Sparkles,
     title: "עבודות עץ מיוחדות",
-    description: "פתרונות יצירתיים וייחודיים לכל צורך, מעיצוב ועד ביצוע.",
+    description: "פתרונות יצירתיים וייחודיים לכל צורך, מעעיצוב ועד ביצוע.",
   },
   {
     icon: RefreshCw,
@@ -41,7 +41,11 @@ const ServicesSection = () => {
 
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" } 
+    },
   };
 
   return (
