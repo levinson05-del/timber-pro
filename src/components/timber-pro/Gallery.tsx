@@ -4,12 +4,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const images = [
-  "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1622146332486-96d7345fb567?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1600566753104-3f50c2925405?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1615876063860-d971f6d4667e?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=800&auto=format&fit=crop"
+  "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=800&auto=format&fit=crop", // Table
+  "https://images.unsplash.com/photo-1622146332486-96d7345fb567?q=80&w=800&auto=format&fit=crop", // Cutting Board
+  "https://images.unsplash.com/photo-1600566753104-3f50c2925405?q=80&w=800&auto=format&fit=crop", // Dining Setup
+  "https://images.unsplash.com/photo-1615876063860-d971f6d4667e?q=80&w=800&auto=format&fit=crop", // Artistic Wood
+  "https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=800&auto=format&fit=crop", // Rustic Table
+  "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=800&auto=format&fit=crop"  // Woodwork Detail
 ];
 
 const Gallery = () => {
