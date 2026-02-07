@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'fromer-motion';
+import { motion } from 'framer-motion';
 
 const About = () => {
   return (
