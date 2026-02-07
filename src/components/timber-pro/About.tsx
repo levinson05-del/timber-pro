@@ -16,7 +16,7 @@ const About = () => {
            <div className="absolute inset-0 border-4 border-[#A05A2C] rounded-lg transform translate-x-4 translate-y-4 -z-10"></div>
            <img 
              src="https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?q=80&w=800&auto=format&fit=crop" 
-             alt="עבודת עץ אומנותית" 
+             alt="נגר אומן עובד על עץ אלון" 
              className="rounded-lg shadow-xl w-full h-auto object-cover z-10 relative"
            />
         </div>
