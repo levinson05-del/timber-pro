@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Phone, MessageSquare, Hammer } from 'lucide-react';
+import { Phone, MessageSquare, Axe } from 'lucide-react';
 import ContactForm from './ContactForm';
 
 const Contact = () => {
@@ -9,15 +9,15 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-[#3e2723] relative">
       <div className="container mx-auto px-4 relative z-10">
         <div className="bg-[#fbf7f4] rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-          <div className="md:w-2/5 bg-[#3e2723] p-10 text-white flex flex-col justify-between relative overflow-hidden">
+          <div className="md:w-2/5 bg-[#3e2723] p-10 text-white flex flex-col justify-between relative overflow-hidden border-l-4 border-[#A05A2C]">
             <div className="absolute inset-0 opacity-20 pointer-events-none" style={{
                 backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm10 17l-7-7 7-7 7 7-7 7z' fill='%23A05A2C' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`
             }}></div>
 
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold font-['Frank_Ruhl_Libre'] mb-6">בואו נגשים חלום</h3>
+              <h3 className="text-3xl font-bold font-['Frank_Ruhl_Libre'] mb-6">רוצים רהיט עם אופי?</h3>
               <p className="text-gray-300 mb-12 leading-relaxed font-['Heebo']">
-                יש לכם רעיון לפרויקט? רוצים להתייעץ? השאירו פרטים ונחזור אליכם בהקדם לקביעת פגישת ייעוץ ללא התחייבות.
+                חולמים על שולחן אבירים שיכיל את כל המשפחה? או קרש חיתוך מיוחד במתנה? השאירו פרטים וניצור אתכם קשר.
               </p>
               <div className="space-y-4 font-['Heebo']">
                 <div className="flex items-center gap-4">
@@ -30,9 +30,9 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-             <div className="flex items-center gap-2 mt-12 relative z-10 opacity-50">
-                  <Hammer className="w-6 h-6 text-[#A05A2C] rotate-[-10deg]" />
-                  <span className="text-xl font-black tracking-tight text-white font-['Frank_Ruhl_Libre']">
+             <div className="flex items-center gap-2 mt-12 relative z-10 opacity-70">
+                  <Axe className="w-6 h-6 text-[#A05A2C]" />
+                  <span className="text-2xl font-black tracking-tight text-white font-['Frank_Ruhl_Libre']">
                   Timber<span className="text-[#A05A2C]">Pro</span>
                   </span>
               </div>

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TreeDeciduous, Ruler, Hammer } from 'lucide-react';
+import { Axe, ChefHat, Crown } from 'lucide-react';
 
 const Services = () => {
   return (
@@ -13,31 +13,31 @@ const Services = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-['Frank_Ruhl_Libre'] text-[#3e2723] mb-4">השירותים שלנו</h2>
-          <div className="w-20 h-1 bg-[#A05A2C] mx-auto rounded-full"></div>
+          <h2 className="text-3xl md:text-4xl font-bold font-['Frank_Ruhl_Libre'] text-[#3e2723] mb-4">תחומי ההתמחות שלנו</h2>
+          <div className="w-24 h-1 bg-[#A05A2C] mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <motion.div whileHover={{ y: -10 }} className="bg-[#fbf7f4] p-8 rounded-xl shadow-lg border-b-4 border-[#A05A2C] group">
             <div className="w-16 h-16 bg-[#e9d9ce] rounded-full flex items-center justify-center mb-6 group-hover:bg-[#A05A2C] transition">
-              <TreeDeciduous className="w-8 h-8 text-[#3e2723] group-hover:text-white transition" />
+              <Crown className="w-8 h-8 text-[#3e2723] group-hover:text-white transition" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 font-['Frank_Ruhl_Libre']">פרגולות ודקים</h3>
-            <p className="text-[#6d4738] font-['Heebo'] leading-relaxed">תכנון ובניית מרחבי חוץ מעץ איכותי. דקים, פרגולות הצללה, ומבני גינה עמידים בכל מזג אוויר.</p>
+            <h3 className="text-2xl font-bold mb-4 font-['Frank_Ruhl_Libre']">שולחנות אבירים</h3>
+            <p className="text-[#6d4738] font-['Heebo'] leading-relaxed">שולחנות אוכל מאסיביים מעץ מלא, ארוכים ורחבים במיוחד, שנועדו לאירוח ביד רחבה ולהפוך למרכז הבית.</p>
           </motion.div>
           <motion.div whileHover={{ y: -10 }} className="bg-[#fbf7f4] p-8 rounded-xl shadow-lg border-b-4 border-[#A05A2C] group">
             <div className="w-16 h-16 bg-[#e9d9ce] rounded-full flex items-center justify-center mb-6 group-hover:bg-[#A05A2C] transition">
-              <Ruler className="w-8 h-8 text-[#3e2723] group-hover:text-white transition" />
+              <Axe className="w-8 h-8 text-[#3e2723] group-hover:text-white transition" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 font-['Frank_Ruhl_Libre']">ריהוט Custom Made</h3>
-            <p className="text-[#6d4738] font-['Heebo'] leading-relaxed">שולחנות אוכל, שידות, ספריות ופריטי ריהוט ייחודיים המותאמים בדיוק לחלל ולסגנון שלכם.</p>
+            <h3 className="text-2xl font-bold mb-4 font-['Frank_Ruhl_Libre']">ריהוט כפרי אותנטי</h3>
+            <p className="text-[#6d4738] font-['Heebo'] leading-relaxed">שידות, מזנונים וספריות בסגנון כפרי מחוספס (Rustic), המדגיש את הטקסטורה הטבעית והגולמית של העץ.</p>
           </motion.div>
           <motion.div whileHover={{ y: -10 }} className="bg-[#fbf7f4] p-8 rounded-xl shadow-lg border-b-4 border-[#A05A2C] group">
             <div className="w-16 h-16 bg-[#e9d9ce] rounded-full flex items-center justify-center mb-6 group-hover:bg-[#A05A2C] transition">
-              <Hammer className="w-8 h-8 text-[#3e2723] group-hover:text-white transition" />
+              <ChefHat className="w-8 h-8 text-[#3e2723] group-hover:text-white transition" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 font-['Frank_Ruhl_Libre']">פרויקטים מיוחדים</h3>
-            <p className="text-[#6d4738] font-['Heebo'] leading-relaxed">חיפויי קיר, מדרגות עץ, אלמנטים אומנותיים וכל חלום עץ לא סטנדרטי שיש לכם בראש.</p>
+            <h3 className="text-2xl font-bold mb-4 font-['Frank_Ruhl_Libre']">קרשי חיתוך 3D</h3>
+            <p className="text-[#6d4738] font-['Heebo'] leading-relaxed">אומנות שימושית למטבח. קרשי חיתוך "בוצ'ר" בטכניקות הדבקה מורכבות היוצרות אשליות תלת-ממד מרהיבות.</p>
           </motion.div>
         </div>
       </div>

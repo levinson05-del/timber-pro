@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Menu, X, Phone, Hammer } from 'lucide-react';
+import { Menu, X, Phone, Axe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface HeaderProps {
@@ -20,12 +20,18 @@ const Header = ({ scrollToSection }: HeaderProps) => {
 
   return (
     <header className="sticky top-0 z-50 bg-[#fbf7f4]/95 backdrop-blur-sm shadow-sm border-b border-[#e9d9ce]">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavClick('hero')}>
-          <Hammer className="w-8 h-8 text-[#A05A2C] rotate-[-10deg]" strokeWidth={2.5} />
-          <span className="text-2xl font-black tracking-tight text-[#3e2723] font-['Frank_Ruhl_Libre']">
-            Timber<span className="text-[#A05A2C]">Pro</span>
-          </span>
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        
+        <div className="flex items-center gap-3 cursor-pointer group" onClick={() => handleNavClick('hero')}>
+          <div className="bg-[#3e2723] p-2 rounded-lg shadow-inner transform group-hover:rotate-12 transition duration-300">
+              <Axe className="w-6 h-6 text-[#A05A2C]" strokeWidth={2} />
+          </div>
+          <div className="flex flex-col leading-none">
+              <span className="text-3xl logo-text font-['Frank_Ruhl_Libre'] font-black tracking-tight">
+                Timber<span className="text-[#A05A2C]">Pro</span>
+              </span>
+              <span className="text-xs text-[#A05A2C] font-medium tracking-widest -mt-1">אומנות בעץ כפרי</span>
+          </div>
         </div>
 
         <nav className="hidden md:flex items-center gap-8 font-medium font-['Heebo']">

@@ -15,21 +15,21 @@ const About = () => {
         <div className="md:w-1/2 relative">
            <div className="absolute inset-0 border-4 border-[#A05A2C] rounded-lg transform translate-x-4 translate-y-4 -z-10"></div>
            <img 
-             src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=800&auto=format&fit=crop" 
-             alt="נגר אומן בעבודה" 
+             src="https://images.unsplash.com/photo-1617103996627-e2367372b368?q=80&w=800&auto=format&fit=crop" 
+             alt="עבודת עץ אומנותית" 
              className="rounded-lg shadow-xl w-full h-auto object-cover z-10 relative"
            />
         </div>
         <div className="md:w-1/2 space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold font-['Frank_Ruhl_Libre'] text-[#3e2723]">יותר מסתם נגרות. זו תשוקה.</h2>
+          <h2 className="text-3xl md:text-4xl font-['Frank_Ruhl_Libre'] font-black text-[#3e2723]">לא עוד רהיט סטנדרטי.</h2>
           <p className="text-lg leading-relaxed text-[#6d4738] font-['Heebo']">
-            ב-Timber Pro, אנחנו לא מאמינים בפתרונות פס ייצור. כל פרויקט הוא יצירה חד פעמית, שנולדת מתוך הקשבה לחלום שלכם והבנה עמוקה של חומר הגלם.
+            ב-Timber Pro, אנחנו מתרחקים מהבנאלי. התשוקה שלנו היא לעץ המלא, הגולמי, זה שיש לו נוכחות והיסטוריה. אנחנו לא בונים דקים או פרגולות – אנחנו יוצרים רהיטים שהופכים ללב של הבית.
           </p>
           <p className="text-lg leading-relaxed text-[#6d4738] font-['Heebo']">
-            אנחנו מתמחים בעבודות עץ מורכבות שדורשות דיוק, יצירתיות ויד אומן. מבחירת העץ הנכון ועד לבורג האחרון, אנחנו כאן כדי להבטיח שתקבלו תוצאה שתחזיק שנים ותגרום לכם להתגאות.
+            ההתמחות שלנו היא בפריטים בעלי אופי כפרי חזק, כמו שולחנות אבירים שנועדו לאירוח מאסיבי, ועד לפריטי בוטיק כמו קרשי חיתוך בטכניקות תלת-ממד מורכבות (End Grain) שמשלבות סוגי עצים שונים ליצירת דוגמאות מהפנטות.
           </p>
           <div className="pt-4">
-              <span className="font-['Frank_Ruhl_Libre'] text-xl text-[#A05A2C] font-bold">- הצוות של Timber Pro</span>
+              <span className="font-['Frank_Ruhl_Libre'] text-xl text-[#A05A2C] font-bold">- אומנות הנגרות הכפרית</span>
           </div>
         </div>
       </motion.div>

@@ -30,7 +30,7 @@ const ContactForm = () => {
             <CheckCircle className="w-10 h-10 text-green-600" />
         </div>
         <h3 className="text-2xl font-bold text-[#3e2723] font-['Frank_Ruhl_Libre']">תודה רבה!</h3>
-        <p className="text-[#6d4738]">קיבלנו את הפרטים שלך. נחזור אליך בהקדם האפשרי.</p>
+        <p className="text-[#6d4738]">קיבלנו את הפרטים. נחזור אליך בהקדם לשיחה על הפרויקט המיוחד שלך.</p>
         <button onClick={() => setStatus('idle')} className="mt-4 text-[#A05A2C] hover:underline">שלח הודעה נוספת</button>
       </motion.div>
     );
@@ -67,7 +67,7 @@ const ContactForm = () => {
         />
       </div>
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-[#3e2723] mb-1">הודעה / פרטים על הפרויקט</label>
+        <label htmlFor="message" className="block text-sm font-medium text-[#3e2723] mb-1">על איזה רהיט אתם חולמים?</label>
         <textarea 
           id="message" 
           name="message" 
@@ -75,7 +75,7 @@ const ContactForm = () => {
           value={formData.message}
           onChange={handleChange}
           className="w-full px-4 py-3 rounded-lg bg-white border border-[#e9d9ce] focus:border-[#A05A2C] focus:ring-2 focus:ring-[#A05A2C]/20 outline-none transition resize-none"
-          placeholder="אני מעוניין בפרגולה למרפסת..."
+          placeholder="אני מעוניין בשולחן אבירים באורך 3 מטר..."
         ></textarea>
       </div>
 
