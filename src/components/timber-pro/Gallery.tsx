@@ -8,8 +8,8 @@ const images = [
   "https://images.unsplash.com/photo-1622146332486-96d7345fb567?q=80&w=800&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1600566753104-3f50c2925405?q=80&w=800&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1615876063860-d971f6d4667e?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1595429039552-a40722891150?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1584729706642-9c2657d6d054?q=80&w=800&auto=format&fit=crop"
+  "https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=800&auto=format&fit=crop"
 ];
 
 const Gallery = () => {

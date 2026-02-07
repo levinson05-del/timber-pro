@@ -18,7 +18,7 @@ const Hero = ({ scrollToSection }: HeroProps) => {
     <section id="hero" className="relative h-[85vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1582646388112-990543a17098?q=80&w=1920&auto=format&fit=crop" 
+          src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1920&auto=format&fit=crop" 
           alt="שולחן אבירים כפרי מאסיבי" 
           className="w-full h-full object-cover"
         />
