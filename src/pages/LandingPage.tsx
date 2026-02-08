@@ -163,9 +163,9 @@ const Hero = () => {
               loop 
               muted 
               playsinline 
-              class="absolute top-0 left-0 w-full h-full object-cover opacity-70"
+              class="absolute top-0 left-0 w-full h-full object-cover opacity-80"
             >
-              <source src="https://videos.pexels.com/video-files/3943343/3943343-hd_1920_1080_25fps.mp4" type="video/mp4" />
+              <source src="https://drive.google.com/uc?export=download&id=13amlxKx1P25KL4SqmXOGbtZ_vAPV7cqb" type="video/mp4" />
             </video>
           `
         }}
