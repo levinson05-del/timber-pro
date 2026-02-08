@@ -244,9 +244,14 @@ const About = () => {
             <div className="absolute inset-0 border-2 border-[#bf953f]/30 translate-x-4 translate-y-4 rounded-sm"></div>
             <img 
               src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?q=80&w=900&auto=format&fit=crop" 
-              alt="Master Carpenter" 
-              className="relative z-10 w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl rounded-sm"
+              alt="Yigal Danilov - Master Carpenter" 
+              className="relative z-10 w-full h-[550px] object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl rounded-sm"
             />
+            {/* Experience Badge */}
+            <div className="absolute -bottom-6 -left-6 z-20 bg-[#bf953f] text-black p-6 shadow-xl">
+              <p className="text-4xl font-modern font-bold">25</p>
+              <p className="text-sm tracking-widest uppercase font-medium">שנות יצירה</p>
+            </div>
           </motion.div>
 
           {/* 2. Text Content (Modern & Clean) */}
@@ -279,7 +284,7 @@ const About = () => {
             {/* Signature */}
             <div className="mt-12 pt-8 border-t border-white/10 flex items-center justify-between">
                 <div className="text-right">
-                    <p className="text-white font-modern font-bold text-lg">אלירן לוינסון</p>
+                    <p className="text-white font-modern font-bold text-lg">יגאל דנילוב</p>
                     <p className="text-[#bf953f] text-sm">מייסד ונגר ראשי</p>
                 </div>
             </div>

@@ -23,7 +23,7 @@ const Artisan = () => {
             <div className="absolute inset-0 border-2 border-[#bf953f] translate-x-4 translate-y-4 rounded-sm"></div>
             <img 
               src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?q=80&w=900&auto=format&fit=crop" 
-              alt="Master Carpenter" 
+              alt="Yigal Danilov - Master Carpenter" 
               className="relative z-10 w-full h-[600px] object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl rounded-sm"
             />
             {/* Experience Badge */}
@@ -59,12 +59,12 @@ const Artisan = () => {
             {/* Signature Area */}
             <div className="mt-12 pt-8 border-t border-white/10 flex items-center justify-between">
               <div className="text-right">
-                <p className="text-white font-luxury text-xl">אלירן לוינסון</p>
+                <p className="text-white font-luxury text-xl">יגאל דנילוב</p>
                 <p className="text-[#bf953f] text-sm mt-1 font-luxury">אומן עץ ראשי & מייסד</p>
               </div>
               {/* Signature SVG Placeholder */}
               <div className="text-4xl font-handwriting text-[#bf953f] opacity-60 italic transform -rotate-6">
-                Eliran Levinson
+                Yigal Danilov
               </div>
             </div>
           </motion.div>
