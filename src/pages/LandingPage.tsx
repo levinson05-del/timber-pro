@@ -23,7 +23,7 @@ import Artisan from '@/components/timber-pro/Artisan';
 // --- Luxury Styles & Fonts ---
 const LuxuryStyles = () => (
   <style dangerouslySetInnerHTML={{ __html: `
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Heebo:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Heebo:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&family=Assistant:wght@300;400;700;800&display=swap');
     
     :root {
       --mahogany: #2A1B15;
@@ -39,6 +39,7 @@ const LuxuryStyles = () => (
     .font-body { font-family: 'Heebo', sans-serif; }
     .font-serif-heavy { font-family: 'Cinzel', serif; font-weight: 900; }
     .font-handwriting { font-family: 'Dancing Script', cursive; }
+    .font-modern { font-family: 'Assistant', sans-serif; }
 
     .text-gold-gradient {
       background: linear-gradient(to bottom right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
@@ -228,61 +229,62 @@ const Hero = () => {
 
 const About = () => {
   return (
-    <section id="about" className="py-32 bg-[#1A110E] overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row-reverse items-center gap-20">
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="lg:w-1/2 relative"
-          >
-            <div className="absolute -top-6 -right-6 w-full h-full border border-[#bf953f]/30 -z-10"></div>
-            <div className="relative overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?q=80&w=800&auto=format&fit=crop" 
-                alt="Artisan Hands" 
-                className="w-full h-[600px] object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-              />
-              <div className="absolute inset-0 bg-[#bf953f]/10 mix-blend-overlay"></div>
-            </div>
-          </motion.div>
+    <section id="about" className="py-24 bg-[#0f0f0f] relative overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center gap-16">
           
+          {/* 1. Artisan Image */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="lg:w-1/2 text-right space-y-8"
+            transition={{ duration: 0.8 }}
+            className="md:w-1/2 relative"
           >
-            <div className="space-y-2">
-              <span className="font-luxury text-[#bf953f] tracking-[0.3em] text-xs uppercase">The Vision</span>
-              <h2 className="text-5xl md:text-6xl font-luxury font-black tracking-wide text-gold-gradient">איכות ללא פשרות</h2>
-            </div>
-            
-            <p className="text-xl leading-relaxed text-[#F5F1E8]/70 font-serif-elegant italic">
-              "ב-Timber Pro, אנחנו לא בונים רהיטים. אנחנו יוצרים מורשת. כל פיסת עץ נבחרת בקפידה, כל חיבור מבוצע ביד אומן, וכל גימור הוא מלאכת מחשבת של סבלנות ודיוק."
-            </p>
-            
-            <p className="text-lg leading-relaxed text-[#F5F1E8]/60 font-body">
-              ההתמחות שלנו היא בפריטים בעלי נוכחות מלכותית. משולחנות אבירים מאסיביים מעץ אלון עתיק ועד למטבחי חוץ המשלבים טכנולוגיה מודרנית עם מסורת נגרות בת מאות שנים.
-            </p>
+            <div className="absolute inset-0 border-2 border-[#bf953f]/30 translate-x-4 translate-y-4 rounded-sm"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?q=80&w=900&auto=format&fit=crop" 
+              alt="Master Carpenter" 
+              className="relative z-10 w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl rounded-sm"
+            />
+          </motion.div>
 
-            <div className="grid grid-cols-2 gap-8 pt-10">
-              {[
-                { icon: <Crown size={24} />, text: 'חומרי גלם נדירים' },
-                { icon: <Gem size={24} />, text: 'דיוק מיקרוסקופי' },
-                { icon: <ShieldCheck size={24} />, text: 'אחריות לדורות' },
-                { icon: <Star size={24} />, text: 'עיצוב בלעדי' }
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-center justify-end gap-4 group">
-                  <span className="text-[#F5F1E8] font-luxury text-sm tracking-widest group-hover:text-[#bf953f] transition-colors">{item.text}</span>
-                  <div className="text-[#bf953f] group-hover:scale-110 transition-transform">{item.icon}</div>
+          {/* 2. Text Content (Modern & Clean) */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="md:w-1/2 text-right"
+          >
+            <h3 className="text-[#bf953f] text-sm tracking-[0.3em] uppercase mb-4 font-modern font-bold">
+              הפילוסופיה שלנו
+            </h3>
+            
+            {/* Clean White Modern Headline */}
+            <h2 className="text-5xl md:text-7xl font-modern font-extrabold text-white mb-8 leading-tight">
+              איכות <br/>
+              ללא פשרות.
+            </h2>
+            
+            <div className="space-y-6 text-gray-300 text-xl leading-relaxed font-light font-modern">
+              <p>
+                "אנחנו לא בונים רהיטים. אנחנו יוצרים מורשת. כל פיסת עץ נבחרת בקפידה, כל חיבור מבוצע ביד אומן."
+              </p>
+              <p>
+                ההתמחות שלנו היא בפריטים בעלי נוכחות מלכותית. משולחנות אבירים מאסיביים מעץ אלון עתיק ועד למטבחי חוץ המשלבים טכנולוגיה מודרנית עם מסורת נגרות בת מאות שנים.
+              </p>
+            </div>
+
+            {/* Signature */}
+            <div className="mt-12 pt-8 border-t border-white/10 flex items-center justify-between">
+                <div className="text-right">
+                    <p className="text-white font-modern font-bold text-lg">אלירן לוינסון</p>
+                    <p className="text-[#bf953f] text-sm">מייסד ונגר ראשי</p>
                 </div>
-              ))}
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>
