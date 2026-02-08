@@ -5,72 +5,91 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Menu, 
   X, 
-  Hammer, 
+  Crown, 
+  Send, 
   Phone, 
   Mail, 
-  MapPin, 
-  Send, 
-  ChevronDown,
-  Crown,
-  Gem,
-  Axe,
-  Star,
-  ShieldCheck
+  MapPin,
+  ArrowRight,
+  Shield,
+  Zap,
+  Award
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Artisan from '@/components/timber-pro/Artisan';
 
-// --- Luxury Styles & Fonts ---
-const LuxuryStyles = () => (
+// --- Modern Styles ---
+const ModernStyles = () => (
   <style dangerouslySetInnerHTML={{ __html: `
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Heebo:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&family=Assistant:wght@300;400;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;700;800;900&display=swap');
     
     :root {
-      --mahogany: #2A1B15;
-      --espresso: #1A110E;
-      --cream: #F5F1E8;
-      --gold-light: #fcf6ba;
-      --gold-main: #bf953f;
-      --gold-dark: #aa771c;
+      --accent: #bf953f;
+      --bg-dark: #0a0a0a;
+      --bg-card: #141414;
     }
 
-    .font-luxury { font-family: 'Cinzel', serif; }
-    .font-serif-elegant { font-family: 'Playfair Display', serif; }
-    .font-body { font-family: 'Heebo', sans-serif; }
-    .font-serif-heavy { font-family: 'Cinzel', serif; font-weight: 900; }
-    .font-handwriting { font-family: 'Dancing Script', cursive; }
-    .font-modern { font-family: 'Assistant', sans-serif; }
-
-    .text-gold-gradient {
-      background: linear-gradient(to bottom right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    body { 
+      font-family: 'Heebo', sans-serif;
+      background-color: var(--bg-dark);
+      color: white;
     }
 
-    .luxury-gradient {
-      background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #aa771c 100%);
+    .text-accent { color: var(--accent); }
+    .bg-accent { background-color: var(--accent); }
+    .border-accent { border-color: var(--accent); }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .luxury-shadow {
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    .luxury-border {
+      position: relative;
+    }
+    .luxury-border::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      right: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
     }
 
-    .gold-glow:hover {
-      text-shadow: 0 0 15px rgba(191, 149, 63, 0.6);
+    ::-webkit-scrollbar {
+      width: 8px;
     }
-
-    @keyframes fade-in-up {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
     }
-    .animate-fade-in-up {
-      animation: fade-in-up 1s ease-out forwards;
+    ::-webkit-scrollbar-thumb {
+      background: #222;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
     }
   `}} />
 );
 
-// --- Sub-Components (Internal) ---
+// --- Animation Variants ---
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
+// --- Components ---
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -84,64 +103,63 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'בית', href: '#hero' },
-    { name: 'החזון', href: '#about' },
-    { name: 'יצירות מופת', href: '#masterpieces' },
+    { name: 'האומן', href: '#about' },
+    { name: 'קולקציה', href: '#masterpieces' },
     { name: 'גלריה', href: '#gallery' },
-    { name: 'צרו קשר', href: '#contact' },
+    { name: 'קשר', href: '#contact' },
   ];
 
   return (
     <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-8 py-6",
-      isScrolled ? "bg-[#1A110E]/95 backdrop-blur-lg border-b border-[#bf953f]/20 py-4" : "bg-transparent"
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 md:px-12 py-6",
+      isScrolled ? "bg-black/80 backdrop-blur-xl py-4 border-b border-white/5" : "bg-transparent"
     )}>
       <div className="max-w-7xl mx-auto flex items-center justify-between flex-row-reverse">
-        <div className="flex items-center gap-3 group cursor-pointer">
-          <div className="flex flex-col items-end">
-            <span className="text-2xl font-luxury font-bold text-[#bf953f] tracking-widest leading-none">TIMBER PRO</span>
-            <span className="text-[10px] font-luxury text-[#bf953f]/60 tracking-[0.3em] uppercase">Royal Craftsmanship</span>
+        <div className="flex items-center gap-3">
+          <div className="text-right">
+            <span className="block text-xl font-black tracking-tighter leading-none">TIMBER PRO</span>
+            <span className="text-[10px] font-light tracking-[0.4em] text-accent uppercase">Architectural Wood</span>
           </div>
-          <Crown className="w-8 h-8 text-[#bf953f] transition-transform group-hover:scale-110" />
+          <div className="w-10 h-10 bg-accent flex items-center justify-center rounded-sm">
+            <Crown className="text-black w-6 h-6" />
+          </div>
         </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-10 flex-row-reverse">
+        <div className="hidden md:flex items-center gap-12 flex-row-reverse">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="font-luxury text-sm font-medium text-[#F5F1E8]/80 hover:text-[#bf953f] transition-colors tracking-widest gold-glow"
+              className="text-sm font-medium text-white/70 hover:text-accent transition-colors tracking-wide"
             >
               {link.name}
             </a>
           ))}
         </div>
 
-        {/* Mobile Toggle */}
         <button 
-          className="md:hidden text-[#bf953f]"
+          className="md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden absolute top-full left-0 right-0 bg-[#1A110E] border-b border-[#bf953f]/20 overflow-hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden absolute top-full left-0 right-0 bg-black border-b border-white/10 p-8"
           >
-            <div className="flex flex-col items-center py-10 gap-6">
+            <div className="flex flex-col items-center gap-6">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-[#F5F1E8] text-xl font-luxury tracking-widest hover:text-[#bf953f]"
+                  className="text-xl font-bold tracking-tight"
                 >
                   {link.name}
                 </a>
@@ -156,140 +174,116 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
-      
-      {/* 1. YouTube Video Layer */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+    <section id="hero" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-black/60 z-10" />
         <iframe
           className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-70"
           src="https://www.youtube.com/embed/bmO2nCZx5SM?autoplay=1&mute=1&controls=0&loop=1&playlist=bmO2nCZx5SM&playsinline=1&showinfo=0&rel=0"
-          title="Background Video"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+          allow="autoplay; encrypted-media"
+          title="Background"
+        />
       </div>
 
-      {/* 2. Dark Overlay Layer */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80 z-10 pointer-events-none"></div>
-
-      {/* 3. Content Layer */}
-      <div className="relative z-20 text-center px-4 max-w-5xl mx-auto flex flex-col items-center mt-10">
+      <div className="relative z-20 container mx-auto px-6 text-center">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="max-w-4xl mx-auto"
+        >
+          <motion.span variants={fadeInUp} className="inline-block text-accent font-bold tracking-[0.5em] uppercase text-xs mb-6">
+            Est. 1998 — Master Craftsmanship
+          </motion.span>
           
-          {/* Animated Badge/Logo */}
-          <div className="mb-6 opacity-90 animate-fade-in-up">
-            <Crown className="w-16 h-16 text-[#bf953f] drop-shadow-lg mx-auto" strokeWidth={1.5} />
-          </div>
-
-          {/* Main Title with Metallic Gold Gradient */}
-          <h1 className="text-6xl md:text-9xl font-serif-heavy mb-2 leading-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)] animate-fade-in-up"
-              style={{
-                  background: 'linear-gradient(to bottom right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.5))'
-              }}>
-          אומנות העץ
-          </h1>
-
-          {/* Subtitle */}
-          <div className="flex items-center gap-4 mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <div className="h-[2px] w-12 bg-[#bf953f]"></div>
-              <h2 className="text-3xl md:text-5xl font-light text-white tracking-widest uppercase drop-shadow-md">
-              בסטנדרט אחר
-              </h2>
-              <div className="h-[2px] w-12 bg-[#bf953f]"></div>
-          </div>
+          <motion.h1 variants={fadeInUp} className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.9] mb-8">
+            אומנות <br /> <span className="text-accent">אדריכלית</span> בעץ
+          </motion.h1>
           
-          {/* Description */}
-          <p className="text-xl md:text-2xl text-gray-100 font-normal mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-lg bg-black/30 p-4 rounded-lg backdrop-blur-sm border border-white/10 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            ריהוט יוקרה בהתאמה אישית, מחומרי הגלם הנדירים ביותר בטבע.
-            <br/>עיצוב שנועד להישאר לדורות.
-          </p>
+          <motion.p variants={fadeInUp} className="text-lg md:text-2xl text-white/60 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+            תכנון וביצוע רהיטי יוקרה בהתאמה אישית. שילוב של טכנולוגיה מתקדמת ומסורת נגרות עתיקה.
+          </motion.p>
 
-          {/* Elegant Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 w-full justify-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gradient-to-r from-[#b38728] to-[#fcf6ba] text-black font-bold py-4 px-12 text-lg hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(191,149,63,0.4)] border border-[#fcf6ba]"
-            >
-              ייעוץ פרטי
-            </button>
-            <button 
-              onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-black/50 backdrop-blur-md text-[#fcf6ba] border border-[#b38728] py-4 px-12 text-lg hover:bg-[#b38728] hover:text-black transition-all duration-300"
-            >
-              לגלריית העבודות
-            </button>
-          </div>
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#contact" className="bg-accent text-black px-10 py-5 font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors duration-300">
+              תיאום פגישת ייעוץ
+            </a>
+            <a href="#masterpieces" className="border border-white/20 px-10 py-5 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300">
+              צפייה בקולקציה
+            </a>
+          </motion.div>
+        </motion.div>
       </div>
+
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
+      >
+        <div className="w-[1px] h-20 bg-gradient-to-b from-accent to-transparent" />
+      </motion.div>
     </section>
   );
 };
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-[#0f0f0f] relative overflow-hidden">
+    <section id="about" className="py-32 bg-[#0a0a0a] overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center gap-16">
-          
-          {/* 1. Artisan Image */}
+        <div className="flex flex-col lg:flex-row-reverse items-center gap-20">
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="md:w-1/2 relative"
+            variants={fadeInUp}
+            className="lg:w-1/2 relative"
           >
-            <div className="absolute inset-0 border-2 border-[#bf953f]/30 translate-x-4 translate-y-4 rounded-sm"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?q=80&w=900&auto=format&fit=crop" 
-              alt="Yigal Danilov - Master Carpenter" 
-              className="relative z-10 w-full h-[550px] object-cover grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl rounded-sm"
-            />
-            {/* Experience Badge */}
-            <div className="absolute -bottom-6 -left-6 z-20 bg-[#bf953f] text-black p-6 shadow-xl">
-              <p className="text-4xl font-modern font-bold">25</p>
-              <p className="text-sm tracking-widest uppercase font-medium">שנות יצירה</p>
+            <div className="absolute -top-10 -right-10 w-64 h-64 bg-accent/10 blur-[120px] -z-10" />
+            <div className="relative group">
+              <div className="absolute inset-0 border border-accent/30 translate-x-6 translate-y-6 -z-10 transition-transform group-hover:translate-x-4 group-hover:translate-y-4 duration-500" />
+              <img 
+                src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?q=80&w=900&auto=format&fit=crop" 
+                alt="Yigal Danilov - Master Carpenter" 
+                className="w-full h-[650px] object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 shadow-2xl"
+              />
+              <div className="absolute bottom-8 left-8 glass p-8 border-l-4 border-accent">
+                <span className="block text-4xl font-black leading-none mb-1">25</span>
+                <span className="text-[10px] font-bold tracking-widest uppercase text-accent">שנות ניסיון</span>
+              </div>
             </div>
           </motion.div>
 
-          {/* 2. Text Content (Modern & Clean) */}
           <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="md:w-1/2 text-right"
+            variants={fadeInUp}
+            className="lg:w-1/2 text-right"
           >
-            <h3 className="text-[#bf953f] text-sm tracking-[0.3em] uppercase mb-4 font-modern font-bold">
-              הפילוסופיה שלנו
-            </h3>
-            
-            {/* Clean White Modern Headline */}
-            <h2 className="text-5xl md:text-7xl font-modern font-extrabold text-white mb-8 leading-tight">
-              איכות <br/>
-              ללא פשרות.
+            <span className="text-accent font-bold tracking-[0.3em] text-xs uppercase mb-4 block">The Artisan</span>
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-10 leading-tight">
+              יגאל דנילוב. <br />
+              <span className="text-white/40">חזון שהופך למציאות.</span>
             </h2>
             
-            <div className="space-y-6 text-gray-300 text-xl leading-relaxed font-light font-modern">
+            <div className="space-y-8 text-white/60 text-xl font-light leading-relaxed">
               <p>
-                "אנחנו לא בונים רהיטים. אנחנו יוצרים מורשת. כל פיסת עץ נבחרת בקפידה, כל חיבור מבוצע ביד אומן."
+                "עבורי, עץ הוא לא רק חומר גלם. הוא אורגניזם חי עם היסטוריה, טקסטורה ונשמה. התפקיד שלי הוא להקשיב לו ולחשוף את היופי החבוי בו."
               </p>
               <p>
-                ההתמחות שלנו היא בפריטים בעלי נוכחות מלכותית. משולחנות אבירים מאסיביים מעץ אלון עתיק ועד למטבחי חוץ המשלבים טכנולוגיה מודרנית עם מסורת נגרות בת מאות שנים.
+                במשך למעלה משני עשורים, אני מקדיש את חיי ליצירת פריטים שהם הרבה מעבר לרהיטים. אלו הן יצירות אדריכליות שנועדו להגדיר את החלל ולהישאר רלוונטיות גם בעוד מאה שנה.
               </p>
             </div>
 
-            {/* Signature */}
-            <div className="mt-12 pt-8 border-t border-white/10 flex items-center justify-between">
-                <div className="text-right">
-                    <p className="text-white font-modern font-bold text-lg">יגאל דנילוב</p>
-                    <p className="text-[#bf953f] text-sm">מייסד ונגר ראשי</p>
-                </div>
+            <div className="mt-16 flex items-center justify-end gap-6">
+              <div className="text-right">
+                <p className="text-white font-bold text-lg">יגאל דנילוב</p>
+                <p className="text-accent text-xs font-bold tracking-widest uppercase">מייסד ונגר ראשי</p>
+              </div>
+              <div className="w-12 h-[1px] bg-white/20" />
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>
@@ -297,56 +291,68 @@ const About = () => {
 };
 
 const Masterpieces = () => {
-  const services = [
+  const items = [
     {
-      title: "שולחנות אבירים מלכותיים",
-      desc: "מרכז הכובד של הבית. עץ מלא, מאסיבי ובעל נוכחות שאי אפשר להתעלם ממנה.",
-      icon: <Crown className="w-10 h-10" />,
-      img: "https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=800"
+      title: "שולחנות אבירים",
+      category: "Dining",
+      img: "https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=800",
+      icon: <Award className="w-6 h-6" />
     },
     {
-      title: "מטבחי חוץ יוקרתיים",
-      desc: "שילוב מושלם בין עמידות לתנאי חוץ לבין אסתטיקה של מטבח פנים יוקרתי.",
-      icon: <Gem className="w-10 h-10" />,
-      img: "https://images.unsplash.com/photo-1544450173-8c8d03a137cc?q=80&w=800"
+      title: "מטבחי חוץ",
+      category: "Outdoor",
+      img: "https://images.unsplash.com/photo-1544450173-8c8d03a137cc?q=80&w=800",
+      icon: <Zap className="w-6 h-6" />
     },
     {
-      title: "אומנות בוצ'ר תלת-ממד",
-      desc: "טכניקת End Grain מורכבת היוצרת דוגמאות גיאומטריות מהפנטות ועמידות יוצאת דופן.",
-      icon: <Axe className="w-10 h-10" />,
-      img: "https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?q=80&w=800"
+      title: "אומנות בוצ'ר",
+      category: "Artisan",
+      img: "https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?q=80&w=800",
+      icon: <Shield className="w-6 h-6" />
     }
   ];
 
   return (
-    <section id="masterpieces" className="py-32 bg-[#F5F1E8]">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-24 space-y-4">
-          <span className="font-luxury text-[#bf953f] tracking-[0.4em] text-xs uppercase">Our Collection</span>
-          <h2 className="text-5xl md:text-6xl font-luxury font-bold text-[#2A1B15]">יצירות מופת</h2>
-          <div className="w-24 h-[1px] bg-[#bf953f] mx-auto mt-6"></div>
+    <section id="masterpieces" className="py-32 bg-[#0f0f0f]">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row-reverse justify-between items-end mb-24 gap-8">
+          <div className="text-right">
+            <span className="text-accent font-bold tracking-[0.3em] text-xs uppercase mb-4 block">Our Collection</span>
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter">יצירות מופת</h2>
+          </div>
+          <p className="text-white/40 max-w-md text-right text-lg font-light">
+            כל פריט בקולקציה שלנו הוא תוצאה של מאות שעות עבודה, דיוק מיקרוסקופי ובחירה קפדנית של חומרי הגלם הטובים בעולם.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {services.map((service, index) => (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          {items.map((item, idx) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={idx}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              className="group relative bg-white p-10 luxury-shadow border border-[#bf953f]/10 hover:border-[#bf953f]/40 transition-all duration-500"
+              variants={fadeInUp}
+              className="group relative overflow-hidden bg-bg-card"
             >
-              <div className="mb-8 text-[#bf953f] group-hover:scale-110 transition-transform duration-500">
-                {service.icon}
+              <div className="aspect-[4/5] overflow-hidden">
+                <img 
+                  src={item.img} 
+                  alt={item.title} 
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" 
+                />
               </div>
-              <h3 className="text-2xl font-luxury font-bold text-[#2A1B15] mb-4 text-right">{service.title}</h3>
-              <p className="text-[#2A1B15]/70 font-body text-right leading-relaxed mb-8">
-                {service.desc}
-              </p>
-              <div className="relative h-48 overflow-hidden">
-                <img src={service.img} alt={service.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
-                <div className="absolute inset-0 bg-[#2A1B15]/20 group-hover:bg-transparent transition-colors"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-0 left-0 right-0 p-10 text-right">
+                <div className="flex items-center justify-end gap-3 mb-4">
+                  <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">{item.category}</span>
+                  <div className="w-8 h-[1px] bg-accent" />
+                </div>
+                <h3 className="text-3xl font-black tracking-tight mb-6">{item.title}</h3>
+                <button className="flex items-center justify-end gap-3 text-xs font-bold tracking-widest uppercase group/btn">
+                  <span className="group-hover/btn:mr-2 transition-all">פרטים נוספים</span>
+                  <ArrowRight size={16} className="text-accent" />
+                </button>
               </div>
             </motion.div>
           ))}
@@ -367,28 +373,24 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="gallery" className="py-32 bg-[#1A110E]">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-24 space-y-4">
-          <span className="font-luxury text-[#bf953f] tracking-[0.4em] text-xs uppercase">Visual Journey</span>
-          <h2 className="text-5xl md:text-6xl font-luxury font-bold text-[#F5F1E8]">גלריית אומן</h2>
+    <section id="gallery" className="py-32 bg-[#0a0a0a]">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-24">
+          <span className="text-accent font-bold tracking-[0.3em] text-xs uppercase mb-4 block">Visual Archive</span>
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter">גלריית פרויקטים</h2>
         </div>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
           {images.map((img, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative group overflow-hidden border border-[#bf953f]/20"
+              className="relative group overflow-hidden border border-white/5"
             >
-              <img src={img} alt="Gallery Item" className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-[#1A110E]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                <div className="w-12 h-12 border border-[#bf953f] rounded-full flex items-center justify-center text-[#bf953f]">
-                  <Crown size={20} />
-                </div>
-              </div>
+              <img src={img} alt="Gallery Item" className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+              <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </motion.div>
           ))}
         </div>
@@ -399,31 +401,25 @@ const Gallery = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 bg-[#1A110E] border-t border-[#bf953f]/10">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-32 bg-[#0f0f0f] border-t border-white/5">
+      <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row-reverse gap-24">
-          <div className="lg:w-1/2 space-y-12 text-right">
-            <div className="space-y-4">
-              <span className="font-luxury text-[#bf953f] tracking-[0.4em] text-xs uppercase">Private Consultation</span>
-              <h2 className="text-5xl md:text-6xl font-luxury font-bold text-[#F5F1E8]">בואו נתכנן את <br /> יצירת המופת שלכם</h2>
-            </div>
+          <div className="lg:w-1/2 text-right">
+            <span className="text-accent font-bold tracking-[0.3em] text-xs uppercase mb-4 block">Get In Touch</span>
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-12">בואו נבנה <br /> משהו נצחי.</h2>
             
-            <p className="text-xl text-[#F5F1E8]/60 font-serif-elegant italic">
-              אנחנו זמינים לפגישות ייעוץ פרטיות בסטודיו שלנו או בבית הלקוח.
-            </p>
-            
-            <div className="space-y-10 pt-6">
+            <div className="space-y-12">
               {[
-                { icon: <Phone />, text: '050-1234567', label: 'טלפון ישיר' },
-                { icon: <Mail />, text: 'private@timberpro.co.il', label: 'דואר אלקטרוני' },
-                { icon: <MapPin />, text: 'אזור התעשייה, עמק חפר', label: 'הסטודיו שלנו' }
+                { icon: <Phone size={24} />, label: 'טלפון', value: '050-1234567' },
+                { icon: <Mail size={24} />, label: 'אימייל', value: 'office@timberpro.co.il' },
+                { icon: <MapPin size={24} />, label: 'סטודיו', value: 'אזור התעשייה, עמק חפר' }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center justify-end gap-8 group">
                   <div className="text-right">
-                    <p className="text-[10px] font-luxury text-[#bf953f] tracking-widest uppercase mb-1">{item.label}</p>
-                    <p className="text-xl font-luxury text-[#F5F1E8] group-hover:text-[#bf953f] transition-colors">{item.text}</p>
+                    <p className="text-[10px] font-bold text-accent tracking-widest uppercase mb-1">{item.label}</p>
+                    <p className="text-2xl font-light group-hover:text-accent transition-colors">{item.value}</p>
                   </div>
-                  <div className="w-16 h-16 border border-[#bf953f]/30 rounded-full flex items-center justify-center text-[#bf953f] group-hover:bg-[#bf953f] group-hover:text-[#1A110E] transition-all duration-500">
+                  <div className="w-14 h-14 glass flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-black transition-all duration-500">
                     {item.icon}
                   </div>
                 </div>
@@ -432,38 +428,39 @@ const Contact = () => {
           </div>
 
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            className="lg:w-1/2 bg-[#2A1B15] p-12 luxury-shadow border border-[#bf953f]/20"
+            variants={fadeInUp}
+            className="lg:w-1/2 glass p-12 border-t-4 border-accent"
           >
-            <form className="space-y-8 font-body" dir="rtl">
+            <form className="space-y-10" dir="rtl">
               <div className="space-y-2">
-                <label className="block text-[#bf953f] text-xs font-luxury tracking-widest uppercase">שם מלא</label>
+                <label className="block text-[10px] font-bold text-accent tracking-widest uppercase">שם מלא</label>
                 <input 
                   type="text" 
-                  className="w-full bg-transparent border-b border-[#bf953f]/30 p-4 text-[#F5F1E8] focus:border-[#bf953f] outline-none transition-all" 
+                  className="w-full bg-transparent border-b border-white/10 py-4 text-xl font-light focus:border-accent outline-none transition-all" 
                   placeholder="ישראל ישראלי"
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-[#bf953f] text-xs font-luxury tracking-widest uppercase">טלפון ליצירת קשר</label>
+                <label className="block text-[10px] font-bold text-accent tracking-widest uppercase">טלפון</label>
                 <input 
                   type="tel" 
-                  className="w-full bg-transparent border-b border-[#bf953f]/30 p-4 text-[#F5F1E8] focus:border-[#bf953f] outline-none transition-all" 
+                  className="w-full bg-transparent border-b border-white/10 py-4 text-xl font-light focus:border-accent outline-none transition-all" 
                   placeholder="050-0000000"
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-[#bf953f] text-xs font-luxury tracking-widest uppercase">תיאור הפרויקט</label>
+                <label className="block text-[10px] font-bold text-accent tracking-widest uppercase">הפרויקט שלכם</label>
                 <textarea 
                   rows={4} 
-                  className="w-full bg-transparent border-b border-[#bf953f]/30 p-4 text-[#F5F1E8] focus:border-[#bf953f] outline-none transition-all resize-none"
-                  placeholder="ספרו לנו על החלום שלכם..."
+                  className="w-full bg-transparent border-b border-white/10 py-4 text-xl font-light focus:border-accent outline-none transition-all resize-none"
+                  placeholder="ספרו לנו מה אתם חולמים לבנות..."
                 ></textarea>
               </div>
-              <button className="w-full luxury-gradient text-[#1A110E] py-6 font-luxury font-bold text-sm tracking-[0.3em] hover:brightness-110 transition-all luxury-shadow uppercase flex items-center justify-center gap-4">
-                שלח בקשה לייעוץ <Send size={18} />
+              <button className="w-full bg-accent text-black py-6 font-black text-sm tracking-[0.3em] uppercase hover:bg-white transition-all flex items-center justify-center gap-4">
+                שלח הודעה <Send size={18} />
               </button>
             </form>
           </motion.div>
@@ -477,27 +474,28 @@ const Contact = () => {
 
 const LandingPage = () => {
   return (
-    <div className="min-h-screen bg-[#1A110E] selection:bg-[#bf953f] selection:text-[#1A110E] overflow-x-hidden">
-      <LuxuryStyles />
+    <div className="min-h-screen selection:bg-accent selection:text-black overflow-x-hidden">
+      <ModernStyles />
       <Navbar />
       <Hero />
-      <Artisan />
       <About />
       <Masterpieces />
       <Gallery />
       <Contact />
       
-      <footer className="py-20 bg-[#1A110E] border-t border-[#bf953f]/10 text-center">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center gap-6 mb-12">
-            <Crown className="w-12 h-12 text-[#bf953f]" />
-            <div className="flex flex-col items-center">
-              <span className="text-3xl font-luxury font-bold text-[#bf953f] tracking-[0.3em]">TIMBER PRO</span>
-              <span className="text-xs font-luxury text-[#bf953f]/60 tracking-[0.5em] uppercase mt-2">Royal Craftsmanship</span>
+      <footer className="py-20 bg-[#0a0a0a] border-t border-white/5 text-center">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col items-center gap-8 mb-16">
+            <div className="w-16 h-16 bg-accent flex items-center justify-center rounded-sm">
+              <Crown className="text-black w-10 h-10" />
+            </div>
+            <div className="text-center">
+              <span className="block text-4xl font-black tracking-tighter">TIMBER PRO</span>
+              <span className="text-xs font-light tracking-[0.5em] text-accent uppercase mt-2">Architectural Wood Craft</span>
             </div>
           </div>
-          <div className="w-24 h-[1px] bg-[#bf953f]/30 mx-auto mb-12"></div>
-          <p className="text-[#F5F1E8]/40 font-luxury text-xs tracking-[0.2em]">
+          <div className="w-20 h-[1px] bg-white/10 mx-auto mb-12" />
+          <p className="text-white/20 text-[10px] font-bold tracking-[0.3em] uppercase">
             © {new Date().getFullYear()} TIMBER PRO. ALL RIGHTS RESERVED. <br />
             <span className="mt-4 block">HANDCRAFTED IN ISRAEL 🇮🇱</span>
           </p>
