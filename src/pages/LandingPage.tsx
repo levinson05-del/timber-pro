@@ -153,10 +153,10 @@ const Hero = () => {
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
       
-      {/* 1. YouTube Background Layer */}
+      {/* 1. YouTube Video Layer (Pointer events none for interaction) */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <iframe
-          className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-80"
+          className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-70"
           src="https://www.youtube.com/embed/bmO2nCZx5SM?autoplay=1&mute=1&controls=0&loop=1&playlist=bmO2nCZx5SM&playsinline=1&showinfo=0&rel=0"
           title="Background Video"
           frameBorder="0"
@@ -165,35 +165,42 @@ const Hero = () => {
         ></iframe>
       </div>
 
-      {/* 2. Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-10 pointer-events-none"></div>
+      {/* 2. Dark Overlay Layer (To make text pop) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80 z-10 pointer-events-none"></div>
 
-      {/* 3. Content */}
-      <div className="relative z-20 text-center px-4 max-w-5xl mx-auto">
-        <div className="animate-fade-in-up">
-            <h1 className="text-5xl md:text-8xl font-serif-heavy text-[#C5A059] mb-4 drop-shadow-2xl leading-tight">
-            אומנות העץ
-            </h1>
-            <h2 className="text-3xl md:text-6xl font-light text-white mb-8 tracking-widest border-b border-[#C5A059] inline-block pb-4">
-            בסטנדרט אחר
-            </h2>
+      {/* 3. Content Layer (Centered and Styled) */}
+      <div className="relative z-20 text-center px-6 max-w-4xl mx-auto flex flex-col items-center">
+        <div className="mb-8 animate-fade-in-up">
+            {/* Optional Logo Icon here if desired */}
         </div>
         
-        <p className="text-xl md:text-2xl text-gray-200 font-light mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+        {/* Main Headline with Drop Shadow */}
+        <h1 className="text-5xl md:text-7xl font-serif-heavy text-[#C5A059] mb-4 drop-shadow-2xl leading-tight tracking-wide">
+        אומנות העץ
+        </h1>
+        
+        {/* Sub-headline with Border */}
+        <h2 className="text-3xl md:text-5xl font-light text-white mb-8 tracking-widest border-b-2 border-[#C5A059] inline-block pb-4">
+        בסטנדרט אחר
+        </h2>
+        
+        {/* Body Text */}
+        <p className="text-xl md:text-2xl text-gray-200 font-light mb-12 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
           שולחנות אבירים, מטבחי חוץ ופריטי אספנות מעץ מלא.
           <br/>עיצוב שנועד להישאר לדורות.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+        {/* Buttons (Centered & Equal Size) */}
+        <div className="flex flex-col sm:flex-row gap-6 w-full max-w-lg justify-center items-center">
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-[#C5A059] text-black font-bold py-4 px-12 text-lg hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(197,160,89,0.3)]"
+            className="bg-[#C5A059] text-black font-bold py-4 px-12 text-lg hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(197,160,89,0.3)] w-full sm:w-auto"
           >
             ייעוץ פרטי
           </button>
           <button 
             onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-[#C5A059] border border-[#C5A059] py-4 px-12 text-lg hover:bg-[#C5A059] hover:text-black transition-all duration-300"
+            className="text-[#C5A059] border border-[#C5A059] py-4 px-12 text-lg hover:bg-[#C5A059] hover:text-black transition-all duration-300 w-full sm:w-auto"
           >
             לגלריית העבודות
           </button>
