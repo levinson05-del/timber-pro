@@ -143,22 +143,23 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Cinematic Background Video - Base Layer */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source src="https://videos.pexels.com/video-files/4493397/4493397-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-      </video>
-      
-      {/* Enhanced Dark Gradient Overlay - Middle Layer */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1A110E]/90 via-[#1A110E]/60 to-[#1A110E] z-10"></div>
+      {/* Forced Video Visibility Structure */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: 'brightness(0.6)' }}
+        >
+          <source src="https://videos.pexels.com/video-files/4493397/4493397-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
       
       {/* Content - Top Layer */}
-      <div className="relative z-20 text-center px-4 max-w-5xl">
+      <div className="relative z-10 text-center px-4 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -212,7 +213,7 @@ const Hero = () => {
       <motion.div 
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#C5A059] cursor-pointer opacity-50 z-20"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#C5A059] cursor-pointer opacity-50 z-10"
         onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
       >
         <ChevronDown size={48} strokeWidth={1} />
