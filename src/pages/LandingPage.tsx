@@ -149,13 +149,13 @@ const Hero = () => {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover -z-10"
       >
-        <source src="http://googleusercontent.com/generated_video_content/14515018028344885624" type="video/mp4" />
+        <source src="https://videos.pexels.com/video-files/4493397/4493397-uhd_2560_1440_25fps.mp4" type="video/mp4" />
       </video>
       
       {/* Enhanced Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1A110E]/90 via-[#1A110E]/60 to-[#1A110E] z-1"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1A110E]/90 via-[#1A110E]/60 to-[#1A110E] z-0"></div>
       
       <div className="relative z-10 text-center px-4 max-w-5xl">
         <motion.div
