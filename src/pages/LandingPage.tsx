@@ -165,7 +165,7 @@ const Hero = () => {
               playsinline 
               class="absolute top-0 left-0 w-full h-full object-cover opacity-70"
             >
-              <source src="https://assets.mixkit.co/videos/preview/mixkit-carpenter-polishing-a-wood-surface-4024-large.mp4" type="video/mp4" />
+              <source src="https://videos.pexels.com/video-files/3943343/3943343-hd_1920_1080_25fps.mp4" type="video/mp4" />
             </video>
           `
         }}
