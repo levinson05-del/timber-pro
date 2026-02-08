@@ -35,6 +35,7 @@ const LuxuryStyles = () => (
     .font-luxury { font-family: 'Cinzel', serif; }
     .font-serif-elegant { font-family: 'Playfair Display', serif; }
     .font-body { font-family: 'Heebo', sans-serif; }
+    .font-serif-heavy { font-family: 'Cinzel', serif; font-weight: 900; }
 
     .text-gold { color: var(--gold); }
     .bg-mahogany { background-color: var(--mahogany); }
@@ -52,6 +53,14 @@ const LuxuryStyles = () => (
 
     .gold-glow:hover {
       text-shadow: 0 0 15px rgba(197, 160, 89, 0.6);
+    }
+
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fade-in-up 1s ease-out forwards;
     }
   `}} />
 );
@@ -143,83 +152,59 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
-      {/* 1. Video Layer */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1920&auto=format&fit=crop"
-        className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-80"
-      >
-        <source src="https://videos.pexels.com/video-files/6604475/6604475-hd_1920_1080_25fps.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      
+      {/* 1. Video Layer (Injected as raw HTML to force Autoplay) */}
+      <div 
+        className="absolute inset-0 w-full h-full z-0"
+        dangerouslySetInnerHTML={{
+          __html: `
+            <video 
+              autoplay 
+              loop 
+              muted 
+              playsinline 
+              class="absolute top-0 left-0 w-full h-full object-cover opacity-70"
+            >
+              <source src="https://assets.mixkit.co/videos/preview/mixkit-carpenter-polishing-a-wood-surface-4024-large.mp4" type="video/mp4" />
+            </video>
+          `
+        }}
+      />
 
-      {/* 2. Dark Overlay Layer (To make text pop) */}
-      <div className="absolute inset-0 bg-black/50 z-10"></div>
+      {/* 2. Overlay Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-10 pointer-events-none"></div>
 
-      {/* 3. Content Layer (Must be z-20) */}
+      {/* 3. Content */}
       <div className="relative z-20 text-center px-4 max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="mb-6 flex justify-center"
-        >
-          <div className="h-[1px] w-12 bg-[#C5A059] self-center"></div>
-          <span className="mx-4 font-luxury text-[#C5A059] tracking-[0.4em] text-sm uppercase">Est. 1998</span>
-          <div className="h-[1px] w-12 bg-[#C5A059] self-center"></div>
-        </motion.div>
-
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-luxury font-bold text-[#C5A059] mb-6 drop-shadow-lg leading-tight"
-        >
-          אומנות העץ <br/> <span className="text-white">בסטנדרט אחר</span>
-        </motion.h1>
-
-        <motion.p 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="text-xl md:text-2xl text-gray-200 font-light mb-10 max-w-3xl mx-auto leading-relaxed font-serif-elegant italic"
-        >
-          ריהוט יוקרה בהתאמה אישית, מחומרי הגלם הנדירים ביותר בטבע.
-          שולחנות אבירים, מטבחי חוץ ופריטי אספנות.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center"
-        >
-          <a 
-            href="#masterpieces"
-            className="luxury-gradient text-[#1A110E] px-10 py-5 rounded-sm font-luxury font-bold text-sm tracking-[0.2em] hover:brightness-110 transition-all luxury-shadow uppercase"
-          >
-            גלו את האוסף
-          </a>
-          <a 
-            href="#contact"
-            className="border border-[#C5A059] text-[#C5A059] px-10 py-5 rounded-sm font-luxury font-bold text-sm tracking-[0.2em] hover:bg-[#C5A059] hover:text-[#1A110E] transition-all uppercase"
+        <div className="animate-fade-in-up">
+            <h1 className="text-5xl md:text-8xl font-serif-heavy text-[#C5A059] mb-4 drop-shadow-2xl leading-tight">
+            אומנות העץ
+            </h1>
+            <h2 className="text-3xl md:text-6xl font-light text-white mb-8 tracking-widest border-b border-[#C5A059] inline-block pb-4">
+            בסטנדרט אחר
+            </h2>
+        </div>
+        
+        <p className="text-xl md:text-2xl text-gray-200 font-light mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+          שולחנות אבירים, מטבחי חוץ ופריטי אספנות מעץ מלא.
+          <br/>עיצוב שנועד להישאר לדורות.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+          <button 
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-[#C5A059] text-black font-bold py-4 px-12 text-lg hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(197,160,89,0.3)]"
           >
             ייעוץ פרטי
-          </a>
-        </motion.div>
+          </button>
+          <button 
+            onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
+            className="text-[#C5A059] border border-[#C5A059] py-4 px-12 text-lg hover:bg-[#C5A059] hover:text-black transition-all duration-300"
+          >
+            לגלריית העבודות
+          </button>
+        </div>
       </div>
-
-      <motion.div 
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#C5A059] cursor-pointer opacity-50 z-20"
-        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-      >
-        <ChevronDown size={48} strokeWidth={1} />
-      </motion.div>
     </section>
   );
 };
