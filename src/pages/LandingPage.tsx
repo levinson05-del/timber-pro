@@ -18,11 +18,12 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Artisan from '@/components/timber-pro/Artisan';
 
 // --- Luxury Styles & Fonts ---
 const LuxuryStyles = () => (
   <style dangerouslySetInnerHTML={{ __html: `
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Heebo:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Heebo:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&display=swap');
     
     :root {
       --mahogany: #2A1B15;
@@ -37,6 +38,7 @@ const LuxuryStyles = () => (
     .font-serif-elegant { font-family: 'Playfair Display', serif; }
     .font-body { font-family: 'Heebo', sans-serif; }
     .font-serif-heavy { font-family: 'Cinzel', serif; font-weight: 900; }
+    .font-handwriting { font-family: 'Dancing Script', cursive; }
 
     .text-gold-gradient {
       background: linear-gradient(to bottom right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
@@ -472,6 +474,7 @@ const LandingPage = () => {
       <LuxuryStyles />
       <Navbar />
       <Hero />
+      <Artisan />
       <About />
       <Masterpieces />
       <Gallery />
