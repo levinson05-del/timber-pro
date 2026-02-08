@@ -143,16 +143,19 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
-      <div 
-        className="absolute inset-0 z-0 scale-105"
-        style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1920&auto=format&fit=crop")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+      {/* Cinematic Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1A110E]/80 via-[#1A110E]/40 to-[#1A110E]"></div>
-      </div>
+        <source src="http://googleusercontent.com/generated_video_content/14515018028344885624" type="video/mp4" />
+      </video>
+      
+      {/* Enhanced Dark Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1A110E]/90 via-[#1A110E]/60 to-[#1A110E] z-1"></div>
       
       <div className="relative z-10 text-center px-4 max-w-5xl">
         <motion.div
@@ -179,7 +182,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-xl md:text-2xl text-[#F5F1E8]/70 font-serif-elegant italic mb-12 max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-[#F5F1E8]/80 font-serif-elegant italic mb-12 max-w-2xl mx-auto"
         >
           ריהוט יוקרה בהתאמה אישית, מחומרי הגלם הנדירים ביותר בטבע.
         </motion.p>
@@ -208,7 +211,7 @@ const Hero = () => {
       <motion.div 
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#C5A059] cursor-pointer opacity-50"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#C5A059] cursor-pointer opacity-50 z-10"
         onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
       >
         <ChevronDown size={48} strokeWidth={1} />
