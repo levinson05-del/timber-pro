@@ -142,24 +142,25 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Forced Video Visibility Structure */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: 'brightness(0.6)' }}
-        >
-          <source src="https://videos.pexels.com/video-files/4493397/4493397-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      
-      {/* Content - Top Layer */}
-      <div className="relative z-10 text-center px-4 max-w-5xl">
+    <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
+      {/* 1. Video Layer */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1920&auto=format&fit=crop"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-80"
+      >
+        <source src="https://videos.pexels.com/video-files/6604475/6604475-hd_1920_1080_25fps.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* 2. Dark Overlay Layer (To make text pop) */}
+      <div className="absolute inset-0 bg-black/50 z-10"></div>
+
+      {/* 3. Content Layer (Must be z-20) */}
+      <div className="relative z-20 text-center px-4 max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -175,18 +176,19 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-6xl md:text-8xl font-luxury font-bold text-[#F5F1E8] mb-8 leading-tight"
+          className="text-5xl md:text-7xl font-luxury font-bold text-[#C5A059] mb-6 drop-shadow-lg leading-tight"
         >
-          אומנות העץ <br /> <span className="text-[#C5A059]">בסטנדרט אחר</span>
+          אומנות העץ <br/> <span className="text-white">בסטנדרט אחר</span>
         </motion.h1>
 
         <motion.p 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-xl md:text-2xl text-[#F5F1E8]/80 font-serif-elegant italic mb-12 max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-gray-200 font-light mb-10 max-w-3xl mx-auto leading-relaxed font-serif-elegant italic"
         >
           ריהוט יוקרה בהתאמה אישית, מחומרי הגלם הנדירים ביותר בטבע.
+          שולחנות אבירים, מטבחי חוץ ופריטי אספנות.
         </motion.p>
 
         <motion.div
@@ -213,7 +215,7 @@ const Hero = () => {
       <motion.div 
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#C5A059] cursor-pointer opacity-50 z-10"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#C5A059] cursor-pointer opacity-50 z-20"
         onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
       >
         <ChevronDown size={48} strokeWidth={1} />
