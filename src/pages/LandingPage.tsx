@@ -153,23 +153,17 @@ const Hero = () => {
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
       
-      {/* 1. Video Layer (Injected as raw HTML to force Autoplay) */}
-      <div 
-        className="absolute inset-0 w-full h-full z-0"
-        dangerouslySetInnerHTML={{
-          __html: `
-            <video 
-              autoplay 
-              loop 
-              muted 
-              playsinline 
-              class="absolute top-0 left-0 w-full h-full object-cover opacity-80"
-            >
-              <source src="https://drive.google.com/uc?export=download&id=13amlxKx1P25KL4SqmXOGbtZ_vAPV7cqb" type="video/mp4" />
-            </video>
-          `
-        }}
-      />
+      {/* 1. YouTube Background Layer */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+        <iframe
+          className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-80"
+          src="https://www.youtube.com/embed/bmO2nCZx5SM?autoplay=1&mute=1&controls=0&loop=1&playlist=bmO2nCZx5SM&playsinline=1&showinfo=0&rel=0"
+          title="Background Video"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
 
       {/* 2. Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-10 pointer-events-none"></div>
